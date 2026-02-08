@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Team Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/admin">Admin (CRUD)</a>
+  </nav>
+
+  <h1 id="teamTitle">Team</h1>
+
+  <div class="card" id="teamInfoCard">
+    <div id="teamInfo">Loading...</div>
+  </div>
+
+  <div class="card" id="adminPlayersCard" style="display:none;">
+    <h3>Players Admin</h3>
+    <p style="margin-top:0;">Only admin can add/edit/delete players.</p>
+    <button onclick="addPlayer()">Add Player</button>
+  </div>
+
+  <h3>Players</h3>
+  <div class="card" style="max-width:900px;">
+    <div id="playersWrap">Loading...</div>
+  </div>
+
+  <script src="team.js"></script>
+</body>
+</html>

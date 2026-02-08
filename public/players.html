@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Players</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/all-teams">All Teams</a>
+    <a href="/players">Players</a>
+    <a href="/admin">Admin</a>
+  </nav>
+
+  <h1>Players</h1>
+
+  <div class="card" style="max-width:1100px;">
+    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+      <select id="playerSort">
+        <option value="rating" selected>rating</option>
+        <option value="goals">goals</option>
+        <option value="assists">assists</option>
+        <option value="matches">matches</option>
+        <option value="name">name</option>
+      </select>
+
+      <select id="playerOrder">
+        <option value="desc" selected>DESC</option>
+        <option value="asc">ASC</option>
+      </select>
+
+      <button id="playerLoadBtn" type="button">Load</button>
+    </div>
+  </div>
+
+  <div class="card" style="max-width:1100px; margin-top:12px;">
+    <div id="playersList"></div>
+  </div>
+
+  <script src="/players.js"></script>
+</body>
+</html>

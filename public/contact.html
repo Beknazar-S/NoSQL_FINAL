@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="/admin">Admin (CRUD)</a>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <h1>Contact Form</h1>
+
+  <div class="card">
+    <form id="contactForm">
+      <input id="cname" placeholder="Your Name" required><br>
+      <input id="cemail" placeholder="Your Email" required><br>
+      <textarea id="cmessage" placeholder="Your Message" required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="contactStatus"></p>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('cname').value.trim();
+      const email = document.getElementById('cemail').value.trim();
+      const message = document.getElementById('cmessage').value.trim();
+
+      const status = document.getElementById('contactStatus');
+      status.innerText = 'Sending...';
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        status.innerText = data.message || 'Error';
+        return;
+      }
+
+      status.innerText = data.message;
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

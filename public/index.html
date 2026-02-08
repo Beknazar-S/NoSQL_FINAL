@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Football System - Teams Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="/admin">Admin (CRUD)</a>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/register">Register</a>
+  </nav>
+
+  <h1>Teams Manager</h1>
+
+  <div class="card">
+    <h3>Authentication (Session Login)</h3>
+    <p id="authStatus">Checking session...</p>
+
+    <div id="loginBox">
+      <input id="username" placeholder="Username">
+      <input id="password" type="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="logoutBox" style="display:none;">
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="card" id="createCard" style="display:none;">
+    <h3>Add New Team</h3>
+    <input id="name" placeholder="Team name">
+    <input id="country" placeholder="Country">
+    <input id="coach" placeholder="Coach">
+    <input id="foundedYear" type="number" placeholder="year (e.g. 1902)">
+    <input id="stadium" placeholder="Stadium">
+    <input id="league" placeholder="League">
+    <input id="rating" type="number" placeholder="Rating (0-100)">
+    <input id="logoUrl" placeholder="Logo URL (optional)">
+    <button onclick="addTeam()">Add Team</button>
+    <p style="margin-top:8px;">
+      <small>Write operations are protected: only logged-in users can create/update/delete.</small>
+    </p>
+  </div>
+
+  <h3>Database Teams</h3>
+  <ul id="teams"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
